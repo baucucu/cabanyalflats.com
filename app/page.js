@@ -1,100 +1,186 @@
 import Image from "next/image";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import Link from "next/link";
+
+import PropertiesSection from "@/components/PropertiesSection";
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              app/page.js
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    <div className="flex flex-col min-h-screen">
+      <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 pl-4">
+        <div className="container flex h-14 items-center">
+          <div className="mr-4 hidden md:flex">
+            <Link className="mr-6 flex items-center space-x-2" href="/">
+              <Image
+                src="/valencia_icon.png"
+                alt="Logo"
+                width={30}
+                height={30}
+              />
+              <span className="hidden font-bold sm:inline-block">
+                Cabanyal Flats
+              </span>
+            </Link>
+            <nav className="flex items-center space-x-6 text-sm font-medium">
+              <a
+                className="transition-colors hover:text-foreground/80 text-foreground/60"
+                href="#features"
+              >
+                Features
+              </a>
+              <a
+                className="transition-colors hover:text-foreground/80 text-foreground/60"
+                href="#apartments"
+              >
+                Properties
+              </a>
+              <a
+                className="transition-colors hover:text-foreground/80 text-foreground/60"
+                href="#contact"
+              >
+                Contact
+              </a>
+            </nav>
+          </div>
         </div>
+      </header>
+
+      <main className="flex-1">
+        <section
+          className="relative w-full py-12 md:py-24 lg:py-32 xl:py-48 bg-cover bg-center"
+          style={{
+            backgroundImage: `url('/Cabanyal-1.jpg')`,
+          }}
+        >
+          {/* Overlay */}
+          <div className="absolute inset-0 bg-black bg-opacity-50"></div>
+
+          {/* Content */}
+          <div className="relative container px-4 md:px-6">
+            <div className="flex flex-col items-center space-y-4 text-center text-white">
+              <div className="space-y-2">
+                <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl">
+                  Welcome to Valencia
+                </h1>
+                <p className="text-2xl font-semibold">Cabanyal Flats</p>
+                <p className="mx-auto max-w-[700px] text-gray-300 md:text-xl">
+                  Comfortable and affordable apartments for Erasmus students in
+                  the heart of Valencia.
+                </p>
+              </div>
+              <div className="space-x-4">
+                <Button>View Apartments</Button>
+                <Button variant="secondary">Contact Us</Button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section
+          id="features"
+          className="w-full py-12 md:py-24 lg:py-32 bg-gray-100 dark:bg-gray-800"
+        >
+          <div className="container px-4 md:px-6">
+            <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl text-center mb-12">
+              Why Choose Us?
+            </h2>
+            <div className="grid grid-cols-1 gap-6 mt-8 md:grid-cols-3 md:gap-8">
+              <Card>
+                <CardHeader>
+                  <CardTitle>Prime Location</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p>
+                    All our apartments are located in the city center, close to
+                    universities and amenities.
+                  </p>
+                </CardContent>
+              </Card>
+              <Card>
+                <CardHeader>
+                  <CardTitle>Fully Furnished</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p>
+                    Our apartments come fully equipped with everything you need
+                    for a comfortable stay.
+                  </p>
+                </CardContent>
+              </Card>
+              <Card>
+                <CardHeader>
+                  <CardTitle>Student Community</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p>
+                    Join a vibrant community of international students from all
+                    over the world.
+                  </p>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
+        </section>
+
+        <PropertiesSection />
+
+        <section
+          id="contact"
+          className="w-full py-12 md:py-24 lg:py-32 bg-gray-100 dark:bg-gray-800"
+        >
+          <div className="container px-4 md:px-6">
+            <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl text-center mb-12">
+              Contact Us
+            </h2>
+            <form className="max-w-md mx-auto space-y-4">
+              <Input placeholder="Your Name" />
+              <Input type="email" placeholder="Your Email" />
+              <Textarea placeholder="Your Message" />
+              <Button type="submit" className="w-full">
+                Send Message
+              </Button>
+            </form>
+          </div>
+        </section>
       </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
+
+      <footer className="w-full py-6 bg-gray-800 text-gray-400">
+        <div className="container px-4 md:px-6">
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
+            <div>
+              <h3 className="font-bold mb-2">Valencia Student Apartments</h3>
+              <p>
+                Providing comfortable homes for Erasmus students since 2010.
+              </p>
+            </div>
+            <div>
+              <h3 className="font-bold mb-2">Quick Links</h3>
+              <nav className="flex flex-col space-y-2">
+                <a href="#features">Features</a>
+                <a href="#apartments">Accommodation</a>
+                <a href="#contact">Contact</a>
+              </nav>
+            </div>
+            <div>
+              <h3 className="font-bold mb-2">Contact Info</h3>
+              <p>Email: info@cabanyalflats.com</p>
+              <p>Phone: +34 123 456 789</p>
+            </div>
+          </div>
+          <div className="mt-6 text-center">
+            <p>&copy; 2024 Cabanyal Flats. All rights reserved.</p>
+          </div>
+        </div>
       </footer>
     </div>
   );
