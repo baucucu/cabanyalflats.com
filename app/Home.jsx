@@ -86,18 +86,19 @@ export default function Home({ global, properties, totalUnits }) {
           <div className="relative z-10 container px-4 md:px-6 text-center">
             <div className="space-y-4">
               <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl text-white drop-shadow-md">
-                Your Home Away From Home in Valencia
+                {global.hero_title_1}
               </h1>
               <p className="mx-auto max-w-[700px] text-white text-xl md:text-2xl drop-shadow-md">
-                Comfortable and affordable apartments for Erasmus students in
-                the heart of Cabanyal
+                {global.hero_title_2}
               </p>
               <Button
                 asChild
                 className="bg-white text-black hover:bg-gray-100"
                 size="lg"
               >
-                <Link href="#properties">Find Your Apartment</Link>
+                <Link href="#properties">
+                  {global.hero_call_to_action_button}
+                </Link>
               </Button>
             </div>
           </div>
@@ -109,49 +110,26 @@ export default function Home({ global, properties, totalUnits }) {
         >
           <div className="container px-4 md:px-6">
             <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-center mb-8">
-              Why Choose Us?
+              {global.title}
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <Card>
-                <CardHeader>
-                  <CardTitle>Prime Location</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p>
-                    All our properties are located in the vibrant Cabanyal area,
-                    close to universities and the beach.
-                  </p>
-                </CardContent>
-              </Card>
-              <Card>
-                <CardHeader>
-                  <CardTitle>Fully Furnished</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p>
-                    Our apartments come fully equipped with everything you need
-                    for a comfortable stay.
-                  </p>
-                </CardContent>
-              </Card>
-              <Card>
-                <CardHeader>
-                  <CardTitle>Erasmus-Friendly</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p>
-                    We understand student needs and offer flexible leases and a
-                    supportive community.
-                  </p>
-                </CardContent>
-              </Card>
+              {global.features.map((feature, index) => (
+                <Card key={index}>
+                  <CardHeader>
+                    <CardTitle>{feature.title}</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p>{feature.description}</p>
+                  </CardContent>
+                </Card>
+              ))}
             </div>
           </div>
         </section>
         <section className="w-full py-12 md:py-24 lg:py-32" id="properties">
           <div className="container px-4 md:px-6">
             <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-center mb-8">
-              Our Properties
+              {global.properties_title}
             </h2>
             <p className="text-xl text-center mb-10">
               {properties.length} properties with {totalUnits} rental units in
@@ -179,18 +157,10 @@ export default function Home({ global, properties, totalUnits }) {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
               <div>
                 <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl mb-4">
-                  About Cabanyal
+                  {global.about_title}
                 </h2>
-                <p className="text-xl mb-4">
-                  Cabanyal is a historic fisherman&#34;s quarter in Valencia,
-                  known for its colorful tiled houses and proximity to the
-                  beach.
-                </p>
-                <p className="text-xl mb-4">
-                  It&#34;s a vibrant area with a unique charm, offering students
-                  a true taste of Valencian life.
-                </p>
-                <Button>Discover Cabanyal</Button>
+                <p className="text-xl mb-4">{global.about_description}</p>
+                {/* <Button>Discover Cabanyal</Button> */}
               </div>
               <Image
                 src={`https://cabanyalflats.appy.agency/assets/${global.about_image}?width=600`}
