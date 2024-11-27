@@ -53,7 +53,7 @@ export default function ContactForm({ initialProperty = "" }) {
           Thank You!
         </h2>
         <p className="text-xl text-gray-600">
-          We've received your message and will get back to you soon.
+          We"ve received your message and will get back to you soon.
         </p>
       </div>
     );

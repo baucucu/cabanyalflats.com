@@ -76,7 +76,7 @@ export default function Home({ global, properties, totalUnits }) {
         <section
           className="relative w-full min-h-screen flex items-center justify-center bg-cover bg-center"
           style={{
-            backgroundImage: `url('https://cabanyalflats.appy.agency/assets/${global.hero_image}')`,
+            backgroundImage: `url("https://cabanyalflats.appy.agency/assets/${global.hero_image}")`,
           }}
         >
           {/* Overlay directly applied to the background */}
@@ -182,11 +182,11 @@ export default function Home({ global, properties, totalUnits }) {
                   About Cabanyal
                 </h2>
                 <p className="text-xl mb-4">
-                  Cabanyal is a historic fisherman's quarter in Valencia, known
+                  Cabanyal is a historic fisherman"s quarter in Valencia, known
                   for its colorful tiled houses and proximity to the beach.
                 </p>
                 <p className="text-xl mb-4">
-                  It's a vibrant area with a unique charm, offering students a
+                  It"s a vibrant area with a unique charm, offering students a
                   true taste of Valencian life.
                 </p>
                 <Button>Discover Cabanyal</Button>
