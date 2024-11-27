@@ -182,12 +182,13 @@ export default function Home({ global, properties, totalUnits }) {
                   About Cabanyal
                 </h2>
                 <p className="text-xl mb-4">
-                  Cabanyal is a historic fisherman"s quarter in Valencia, known
-                  for its colorful tiled houses and proximity to the beach.
+                  Cabanyal is a historic fisherman&#34;s quarter in Valencia,
+                  known for its colorful tiled houses and proximity to the
+                  beach.
                 </p>
                 <p className="text-xl mb-4">
-                  It"s a vibrant area with a unique charm, offering students a
-                  true taste of Valencian life.
+                  It&#34;s a vibrant area with a unique charm, offering students
+                  a true taste of Valencian life.
                 </p>
                 <Button>Discover Cabanyal</Button>
               </div>
