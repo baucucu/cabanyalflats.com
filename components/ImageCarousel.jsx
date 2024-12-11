@@ -11,7 +11,6 @@ import {
 import Image from "next/image";
 
 export function ImageCarousel(data, selectedTag) {
-  console.log({ data });
   if (!data) return null;
   return (
     <Carousel
@@ -27,7 +26,7 @@ export function ImageCarousel(data, selectedTag) {
             return image.tags.includes(data.selectedTag);
           })
           .map((_, index) => (
-            <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
+            <CarouselItem key={index} className="md:basis-1 lg:basis-1/2">
               <div className="p-1">
                 <Image
                   src={`https://admin.cabanyalflats.com/assets/${_.id}?width=400`}

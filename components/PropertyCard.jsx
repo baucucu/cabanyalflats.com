@@ -18,6 +18,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { Badge } from "@/components/ui/badge";
 
 const PropertyCard = ({ property, onRequestInfo }) => {
   // const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -26,16 +27,6 @@ const PropertyCard = ({ property, onRequestInfo }) => {
   const [error, setError] = useState(null);
   const [tags, setTags] = useState(null);
   const [selectedTag, setSelectedTag] = useState(null);
-
-  // const handleNextImage = () => {
-  //   setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
-  // };
-
-  // const handlePrevImage = () => {
-  //   setCurrentImageIndex((prevIndex) =>
-  //     prevIndex === 0 ? images.length - 1 : prevIndex - 1
-  //   );
-  // };
 
   // Determine images to display (real images or placeholder)
   const images =
@@ -104,54 +95,7 @@ const PropertyCard = ({ property, onRequestInfo }) => {
 
   return (
     <Card className="flex flex-col h-full min-h-[300px]">
-      {/* <div className="relative">
-        {images.length > 1 && (
-          <>
-            <Button
-              variant="outline"
-              size="icon"
-              className="absolute left-2 top-1/2 -translate-y-1/2 z-10"
-              onClick={handlePrevImage}
-            >
-              <ChevronLeft className="h-4 w-4" />
-            </Button>
-            <Button
-              variant="outline"
-              size="icon"
-              className="absolute right-2 top-1/2 -translate-y-1/2 z-10"
-              onClick={handleNextImage}
-            >
-              <ChevronRight className="h-4 w-4" />
-            </Button>
-          </>
-        )}
-        <Image
-          src={images[currentImageIndex]}
-          // src={}
-          alt={property.property_name || "Property Image"}
-          width={400}
-          height={300}
-          className="w-full h-48 object-cover"
-        />
-        {images.length > 1 && (
-          <div className="absolute bottom-2 left-0 right-0 flex justify-center space-x-2">
-            {images.map((_, index) => (
-              <div
-                key={index}
-                className={`h-2 w-2 rounded-full ${
-                  index === currentImageIndex
-                    ? "bg-primary"
-                    : "bg-muted-foreground"
-                }`}
-              />
-            ))}
-          </div>
-        )}
-      </div> */}
       <ImageCarousel data={data} selectedTag={selectedTag} />
-      {/* <div className="flex gap-2 m-2">
-        {tags && tags.map((tag) => <Badge key={tag}>{tag}</Badge>)}
-      </div> */}
       {tags && (
         <Select
           defaultValue={tags[0]}
@@ -174,6 +118,23 @@ const PropertyCard = ({ property, onRequestInfo }) => {
       <CardHeader>
         <CardTitle>{property.property_name || "Untitled Property"}</CardTitle>
         <CardDescription>{property?.neighborhood}</CardDescription>
+        {property.total_price && (
+          <CardDescription>
+            <Badge className="mr-2" variant="outline">
+              {`Rent per apartment: € ${property.total_price}`}
+            </Badge>
+          </CardDescription>
+        )}
+        {/* get the min and max price per unit and show them  */}
+        {property.unit && (
+          <CardDescription>
+            <Badge className="mr-2" variant="outline">
+              Rent per unit: €
+              {Math.min(...property.unit.map((unit) => unit.unit_price))} - €
+              {Math.max(...property.unit.map((unit) => unit.unit_price))}
+            </Badge>
+          </CardDescription>
+        )}
       </CardHeader>
       <CardContent className="flex-1">
         <div dangerouslySetInnerHTML={{ __html: property.description }} />
