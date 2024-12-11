@@ -102,7 +102,7 @@ const PropertyCard = ({ property, onRequestInfo }) => {
           onValueChange={(tag) => setSelectedTag(tag)}
         >
           <Label className="ml-6 mb-2 mt-2">Filter photos</Label>
-          <SelectTrigger className="w-[300px] ml-4">
+          <SelectTrigger className="ml-4 w-[250px]">
             <SelectValue placeholder="Filter photos" />
           </SelectTrigger>
           <SelectContent>
