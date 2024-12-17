@@ -9,8 +9,17 @@ import {
 } from "@/components/ui/carousel";
 
 import Image from "next/image";
+import { ImageModal } from "@/components/ImageModal";
 
 export function ImageCarousel(data, selectedTag) {
+  const [open, setOpen] = React.useState(false);
+  const [activeIndex, setActiveIndex] = React.useState(0);
+
+  const handleModalOpen = (index) => {
+    setActiveIndex(index);
+    setOpen(true);
+  };
+
   if (!data) return null;
   return (
     <Carousel
@@ -26,13 +35,18 @@ export function ImageCarousel(data, selectedTag) {
             return image.tags.includes(data.selectedTag);
           })
           .map((_, index) => (
-            <CarouselItem key={index}>
+            <CarouselItem
+              key={index}
+              onClick={() => {
+                handleModalOpen(index);
+              }}
+            >
               <div className="p-1">
                 <Image
                   src={`https://admin.cabanyalflats.com/assets/${_.id}?width=400`}
                   alt={`Image ${index}`}
                   width={400}
-                  height={300}
+                  height={700}
                   className="w-full object-cover h-48"
                 />
               </div>
@@ -49,6 +63,12 @@ export function ImageCarousel(data, selectedTag) {
           //   variant="ghost"
         />
       </div>
+      <ImageModal
+        images={data.data}
+        initialIndex={activeIndex}
+        open={open}
+        setOpen={setOpen}
+      />
     </Carousel>
   );
 }
