@@ -133,10 +133,11 @@ export default function Home({ global, properties, totalUnits }) {
             <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-center mb-8">
               {global.properties_title}
             </h2>
-            <p className="text-xl text-center mb-10">
+            {/* <p className="text-xl text-center mb-10">
               {properties.length} properties with {totalUnits} rental units in
               the heart of Cabanyal
-            </p>
+            </p> */}
+            <p>{global.properties_description}</p>
             <div className="grid justify-center">
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl w-full">
                 {properties.map((property) => (

@@ -86,6 +86,7 @@ const PropertyCard = ({ property, onRequestInfo }) => {
 
   useEffect(() => {
     if (!data) return;
+    console.log({ data: data.filter((item) => !item?.tags) });
     const uniqueTags = [...new Set(data.flatMap((item) => item.tags).sort())];
     setTags(uniqueTags);
   }, [data]);
