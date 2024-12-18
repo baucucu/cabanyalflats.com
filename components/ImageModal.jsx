@@ -27,7 +27,7 @@ export function ImageModal({ images, initialIndex, open, setOpen }) {
       {/* <DialogTrigger asChild>
         <Button variant="outline">Open Photo Gallery</Button>
       </DialogTrigger> */}
-      <DialogTitle>Photos</DialogTitle>
+      {/* <DialogTitle>Photos</DialogTitle> */}
       <DialogContent className="max-w-[90vw] max-h-[90vh] p-0">
         <Carousel
           opts={{
@@ -81,7 +81,7 @@ export function ImageModal({ images, initialIndex, open, setOpen }) {
           <X className="h-4 w-4" />
         </Button> */}
       </DialogContent>
-      <DialogDescription>Images</DialogDescription>
+      {/* <DialogDescription>Images</DialogDescription> */}
     </Dialog>
   );
 }

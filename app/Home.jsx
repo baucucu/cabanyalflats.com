@@ -137,7 +137,9 @@ export default function Home({ global, properties, totalUnits }) {
               {properties.length} properties with {totalUnits} rental units in
               the heart of Cabanyal
             </p> */}
-            <p>{global.properties_description}</p>
+            <p className="text-xl text-center mb-10">
+              {global.properties_description}
+            </p>
             <div className="grid justify-center">
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl w-full">
                 {properties.map((property) => (
