@@ -66,6 +66,7 @@ export function ImageCarousel(data, selectedTag) {
       <ImageModal
         images={data.data}
         initialIndex={activeIndex}
+        selectedTag={data.selectedTag}
         open={open}
         setOpen={setOpen}
       />

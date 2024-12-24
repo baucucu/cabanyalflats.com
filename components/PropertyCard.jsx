@@ -126,7 +126,9 @@ const PropertyCard = ({ property, onRequestInfo }) => {
             </Badge>
           </CardDescription>
         )}
-        {/* get the min and max price per unit and show them  */}
+        {/* If there are units, get the min and max price per unit and show them.
+        If the user selects a unit, show the price for that unit, otherwise show the min and max price.  
+        If the user selects the propery name tag show the min and max price per unit*/}
         {property.unit && (
           <CardDescription>
             <Badge className="mr-2" variant="outline">
@@ -136,6 +138,17 @@ const PropertyCard = ({ property, onRequestInfo }) => {
             </Badge>
           </CardDescription>
         )}
+        {selectedTag ? (
+          <CardDescription>
+            <Badge className="mr-2" variant="outline">
+              {
+                property.unit.filter(
+                  (unit) => unit.unit_name === selectedTag
+                )[0]?.unit_price
+              }
+            </Badge>
+          </CardDescription>
+        ) : null}
       </CardHeader>
       <CardContent className="flex-1">
         <div dangerouslySetInnerHTML={{ __html: property.description }} />

@@ -18,16 +18,25 @@ import {
 import Image from "next/image";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
 import { DialogDescription } from "@radix-ui/react-dialog";
+import * as VisuallyHidden from "@radix-ui/react-visually-hidden";
 
-export function ImageModal({ images, initialIndex, open, setOpen }) {
+export function ImageModal({
+  images,
+  initialIndex,
+  selectedTag,
+  open,
+  setOpen,
+}) {
   // const [activeIndex, setActiveIndex] = React.useState(initialIndex);
-
+  console.log({ selectedTag });
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       {/* <DialogTrigger asChild>
         <Button variant="outline">Open Photo Gallery</Button>
       </DialogTrigger> */}
-      {/* <DialogTitle>Photos</DialogTitle> */}
+      <VisuallyHidden.Root>
+        <DialogTitle>Photos</DialogTitle>
+      </VisuallyHidden.Root>
       <DialogContent className="max-w-[90vw] max-h-[90vh] p-0">
         <Carousel
           opts={{
@@ -39,21 +48,26 @@ export function ImageModal({ images, initialIndex, open, setOpen }) {
           index={initialIndex}
         >
           <CarouselContent>
-            {images.map((photo, index) => (
-              <CarouselItem
-                key={index}
-                className="flex items-center justify-center"
-              >
-                <div className="relative aspect-video w-full max-h-[80vh]">
-                  <Image
-                    src={`https://admin.cabanyalflats.com/assets/${photo.id}?width=400`}
-                    alt={photo.id}
-                    fill
-                    className="object-contain"
-                  />
-                </div>
-              </CarouselItem>
-            ))}
+            {images
+              .filter((image) => {
+                if (!selectedTag) return true;
+                return image.tags.includes(selectedTag);
+              })
+              .map((photo, index) => (
+                <CarouselItem
+                  key={index}
+                  className="flex items-center justify-center"
+                >
+                  <div className="relative aspect-video w-full max-h-[80vh]">
+                    <Image
+                      src={`https://admin.cabanyalflats.com/assets/${photo.id}?width=400`}
+                      alt={photo.id}
+                      fill
+                      className="object-contain"
+                    />
+                  </div>
+                </CarouselItem>
+              ))}
           </CarouselContent>
           <div className="absolute inset-0 flex items-center justify-between p-4">
             <CarouselPrevious
@@ -81,7 +95,9 @@ export function ImageModal({ images, initialIndex, open, setOpen }) {
           <X className="h-4 w-4" />
         </Button> */}
       </DialogContent>
-      {/* <DialogDescription>Images</DialogDescription> */}
+      <VisuallyHidden.Root>
+        <DialogDescription>Images</DialogDescription>
+      </VisuallyHidden.Root>
     </Dialog>
   );
 }
