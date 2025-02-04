@@ -106,7 +106,7 @@ export default function Home({ global, properties, totalUnits }) {
 
         {global.features_enabled && (
           <section
-            className="w-full py-12 md:py-24 lg:py-32 bg-gray-100"
+            className="w-full py-12 md:py-24 lg:py-32 bg-gray-100 flex justify-center"
             id="features"
           >
             <div className="container px-4 md:px-6">
@@ -128,7 +128,7 @@ export default function Home({ global, properties, totalUnits }) {
             </div>
           </section>
         )}
-        <section className="w-full py-12 md:py-24 lg:py-32" id="properties">
+        <section className="w-full py-12 md:py-24 lg:py-32 flex justify-center" id="properties">
           <div className="container px-4 md:px-6">
             <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-center mb-8">
               {global.properties_title}
@@ -155,7 +155,7 @@ export default function Home({ global, properties, totalUnits }) {
         </section>
 
         <section
-          className="w-full py-12 md:py-24 lg:py-32 bg-gray-100"
+          className="w-full py-12 md:py-24 lg:py-32 bg-gray-100 flex justify-center"
           id="about"
         >
           <div className="container mx-auto px-4 md:px-6 max-w-7xl">
@@ -178,7 +178,7 @@ export default function Home({ global, properties, totalUnits }) {
           </div>
         </section>
         <section
-          className="w-full py-12 md:py-24 lg:py-32"
+          className="w-full py-12 md:py-24 lg:py-32 flex justify-center"
           id="contact"
           ref={contactFormRef}
         >
