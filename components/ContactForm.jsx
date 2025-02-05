@@ -38,7 +38,7 @@ export default function ContactForm({ initialProperty = "" }) {
     e.preventDefault();
     try {
       // Replace with your actual N8N webhook URL
-      await axios.post(process.env.NEXT_PUBLIC_N8N_WEBHOOK_URL, formData);
+      await axios.post(process.env.NEXT_PUBLIC_CONTACTFORM_WEBHOOK_URL, formData);
       setIsSubmitted(true);
     } catch (error) {
       console.error("Submission error", error);
