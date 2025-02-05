@@ -62,7 +62,7 @@ export default function Home({ global, properties, totalUnits }) {
             className="text-sm font-medium hover:underline underline-offset-4"
             href="#about"
           >
-            About
+            Landlords
           </Link>
           <Link
             className="text-sm font-medium hover:underline underline-offset-4"
