@@ -45,7 +45,7 @@ export default function Home({ global, properties, totalUnits }) {
           <Image
             src={`https://cabanyalflats.appy.agency/assets/${global.website_logo}?width=40`}
             alt="Cabanyal Flats Logo"
-            // width={40}
+            width={140}
             height={40}
             // className="rounded-lg shadow-lg"
           />
