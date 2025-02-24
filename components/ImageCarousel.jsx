@@ -47,7 +47,7 @@ export function ImageCarousel(data, selectedTag) {
                   alt={`Image ${index}`}
                   width={400}
                   height={700}
-                  className="w-full object-cover"
+                  className="w-full object-cover h-48"
                 />
               </div>
             </CarouselItem>
