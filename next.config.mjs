@@ -3,6 +3,7 @@ const nextConfig = {
   images: {
     domains: ["appy.agency, placehold.co"],
     dangerouslyAllowSVG: true,
+    unoptimized: true,
     remotePatterns: [
       {
         protocol: "https",
