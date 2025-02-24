@@ -60,8 +60,9 @@ export function ImageModal({
                 >
                   <div className="relative aspect-video w-full max-h-[80vh]">
                     <Image
-                      src={`https://admin.cabanyalflats.com/assets/${photo.id}?width=400`}
+                      src={`https://admin.cabanyalflats.com/assets/${photo.id}`}
                       alt={photo.id}
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                       fill
                       className="object-contain"
                     />
