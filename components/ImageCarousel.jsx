@@ -43,11 +43,11 @@ export function ImageCarousel(data, selectedTag) {
             >
               <div className="p-1">
                 <Image
-                  src={`https://admin.cabanyalflats.com/assets/${_.id}?width=400`}
+                  src={`https://admin.cabanyalflats.com/assets/${_.id}`}
                   alt={`Image ${index}`}
                   width={400}
                   height={700}
-                  className="w-full object-cover h-48"
+                  className="w-full object-cover"
                 />
               </div>
             </CarouselItem>
