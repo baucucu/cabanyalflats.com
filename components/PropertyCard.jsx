@@ -32,14 +32,13 @@ const PropertyCard = ({ property, onRequestInfo }) => {
   const images =
     data?.length > 0
       ? data.map(
-          (image) =>
-            `https://cabanyalflats.appy.agency/assets/${image.id}?width=400`
-        )
+        (image) =>
+          `https://cabanyalflats.appy.agency/assets/${image.id}?width=400`
+      )
       : [
-          `https://placehold.co/400x300?text=${
-            property.property_name || "Property"
-          }`,
-        ];
+        `https://placehold.co/400x300?text=${property.property_name || "Property"
+        }`,
+      ];
 
   useEffect(() => {
     const fetchImageDetails = async () => {
@@ -119,7 +118,7 @@ const PropertyCard = ({ property, onRequestInfo }) => {
       <CardHeader>
         <CardTitle>{property.property_name || "Untitled Property"}</CardTitle>
         <CardDescription>{property?.neighborhood}</CardDescription>
-        {property.total_price && (
+        {property.rent_whole && property?.total_price && (
           <CardDescription>
             <Badge className="mr-2" variant="outline">
               {`Rent per apartment: € ${property.total_price}`}
@@ -129,7 +128,7 @@ const PropertyCard = ({ property, onRequestInfo }) => {
         {/* If there are units, get the min and max price per unit and show them.
         If the user selects a unit, show the price for that unit, otherwise show the min and max price.  
         If the user selects the propery name tag show the min and max price per unit*/}
-        {property.unit && (
+        {!rent_whole && property.unit && (
           <CardDescription>
             <Badge className="mr-2" variant="outline">
               Rent per unit: €
